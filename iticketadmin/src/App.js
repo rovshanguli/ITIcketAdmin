@@ -1,27 +1,23 @@
-import './assets/css/style.css'
-import SideBar from './components/layout/SideBar';
-import Event from './components/pages/Event';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
+
 function App() {
   return (
-    <div >
-
-      <Router>
-        <div className='row'>
-
-          <div className="col-2 m-0 p-0">
-            <SideBar />
-          </div>
-
-          <div className="col-9 m-0 p-0">
-            <Routes>
-              <Route exact path='/event' element={<Event />} />
-            </Routes>
-          </div>
-
-        </div>
-      </Router>
-
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
