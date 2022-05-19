@@ -9,7 +9,7 @@ function SideBar() {
                 <li className="nav-item nav-profile">
                     <a href="/" className="nav-link">
                         <div className="profile-image">
-                            <img className="img-xs rounded-circle" src={require('../assets/images/faces/face8.jpg')} alt='/' />
+                            <img className="img-xs rounded-circle" src={require('../../assets/images/faces/face8.jpg')} alt='/' />
                             <div className="dot-indicator bg-success"></div>
                         </div>
                         <div className="text-wrapper">

@@ -1,8 +1,8 @@
 import './assets/style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SideBar from './components/SideBar';
-import Navbar from './components/Navbar'
-import Table from './components/Table';
+import SideBar from './components/layout/SideBar';
+import Navbar from './components/layout/Navbar'
+import EventTable from './components/Event/EventTable';
 function App() {
   return (
     <Router>
@@ -15,7 +15,7 @@ function App() {
             <div className="content-wrapper">
               <div className="row">
                <Routes>
-                 <Route path="/events" element={<Table/>}/>
+                 <Route path="/events" element={<EventTable/>}/>
                </Routes>
               </div>
             </div>

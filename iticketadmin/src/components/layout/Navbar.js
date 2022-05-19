@@ -6,7 +6,7 @@ function Navbar() {
             <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div className="navbar-brand-wrapper d-flex align-items-center">
                     <a className="navbar-brand brand-logo" href="index.html">
-                        <img src={require('../assets/images/logo.svg')} alt="logo" className="logo-dark" />
+                        <img src={require('../../assets/images/logo.svg')} alt="logo" className="logo-dark" />
                     </a>
                     <a className="navbar-brand brand-logo-mini" href="/"><img src="images/logo-mini.svg" alt="logo" /></a>
                 </div>

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-function Table() {
+function EventTable() {
+    let count = 0;
 
     const [events, setEvent] = useState([]);
 
@@ -30,28 +31,33 @@ function Table() {
                     <table className="table table-striped">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th> Event name </th>
-                                <th> Location </th>
+                                <th> Date </th>
                                 <th> Progress </th>
                                 <th> Amount </th>
-                                <th> Deadline </th>
+                                <th> Settings </th>
                             </tr>
                         </thead>
                         <tbody>
                             {
+                                
                                 events.map((levent =>
+                                    
                                     <tr>
+                                        <td>{++count}</td>
                                         <td className="py-1">
-                                            <img src={require('../assets/images/faces-clipart/pic-1.png')} alt="" />
+                                            {levent.name}
                                         </td>
-                                        <td> {levent.name} </td>
+                                        <td> {levent.date.substring(0, 10)} </td>
                                         <td>
                                             <div className="progress">
-                                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '25%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '75%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </td>
                                         <td> $ {levent.price} </td>
-                                        <td> {levent.date} </td>
+                                        <td> <i class="fas fa-trash-alt"></i> </td>
+                                        
                                     </tr>
                                 ))
 
@@ -65,4 +71,4 @@ function Table() {
     )
 }
 
-export default Table
+export default EventTable
