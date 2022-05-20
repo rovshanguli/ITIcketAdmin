@@ -5,24 +5,22 @@ import axios from 'axios';
 
 function CreateEvent() {
 
+    const [name , setName] = useState(); 
+    const [img, setImg] = useState();
+    const [halls, setHall] = useState([]);
+    const [categories, setCategory] = useState([]);
+
 
     function getBase64(file) {
-        debugger
-        if (file != null) {
-            var reader = new FileReader();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = function () {
-                setImg(reader.result)
-            };
-            reader.onerror = function (error) {
-                console.log('Error: ', error);
-            };
-        }
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
     }
 
-    const [halls, setHall] = useState([]);
-    const [img, setImg] = useState(null);
-    const [categories, setCategory] = useState([]);
+
 
 
     const loadHalls = async () => {
@@ -35,11 +33,30 @@ function CreateEvent() {
         setCategory(result.data);
     }
 
-    function test(file) {
-        setImg(file);
+    function create() {
+        axios.post('/api/Event/CreateEvent', {
+            Name: name,
+            Image: img,
+            lastName: 'Flintstone'
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+        });
     }
 
+    function test(file) {
+        var base64String = getBase64(file);
+        base64String.then(function (result) {
+            setImg(result)
+        });
+        
+    }
 
+    console.log(img);
+    
 
     useEffect(() => {
         loadHalls();
@@ -47,9 +64,10 @@ function CreateEvent() {
     }, []);
 
 
-    let str = getBase64(img);
+    
 
-    console.log(str)
+
+
 
 
     return (
@@ -57,7 +75,7 @@ function CreateEvent() {
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Event Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Event Name" />
+                    <Form.Control type="text" placeholder="Enter Event Name" onChange={(e) => setName(e.target.value)} />
                 </Form.Group>
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>BackGround Image</Form.Label>
@@ -92,7 +110,7 @@ function CreateEvent() {
                         ))}
                     </Form.Select>
                 </FormGroup>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onChange={() => create()}>
                     Submit
                 </Button>
             </Form>
