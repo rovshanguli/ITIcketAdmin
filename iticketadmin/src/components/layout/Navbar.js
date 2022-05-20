@@ -6,9 +6,9 @@ function Navbar() {
             <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div className="navbar-brand-wrapper d-flex align-items-center">
                     <a className="navbar-brand brand-logo" href="index.html">
-                        <img src={require('../../assets/images/logo.svg')} alt="logo" className="logo-dark" />
+                        <img src={require('../../assets/logo/logoiticket.png')} alt="logo" className="logo-dark" />
                     </a>
-                    <a className="navbar-brand brand-logo-mini" href="/"><img src="images/logo-mini.svg" alt="logo" /></a>
+                   
                 </div>
                 <div className="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
                     <h5 className="mb-0 font-weight-medium d-none d-lg-flex">Welcome stallar dashboard!</h5>
@@ -32,7 +32,7 @@ function Navbar() {
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item preview-item" href='/'>
                                     <div className="preview-thumbnail">
-                                        <img src="images/faces/face10.jpg" alt='' className="img-sm profile-pic" />
+                                        <img src={require('../../assets/images/faces/face10.jpg')} alt='' className="img-sm profile-pic" />
                                     </div>
                                     <div className="preview-item-content flex-grow py-2">
                                         <p className="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
@@ -41,7 +41,7 @@ function Navbar() {
                                 </a>
                                 <a className="dropdown-item preview-item" href='/'>
                                     <div className="preview-thumbnail">
-                                        <img src="images/faces/face12.jpg" alt='' className="img-sm profile-pic" />
+                                        <img src={require('../../assets/images/faces/face8.jpg')} alt='' className="img-sm profile-pic" />
                                     </div>
                                     <div className="preview-item-content flex-grow py-2">
                                         <p className="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
@@ -50,7 +50,7 @@ function Navbar() {
                                 </a>
                                 <a className="dropdown-item preview-item" href='/'>
                                     <div className="preview-thumbnail">
-                                        <img src="images/faces/face1.jpg" alt='' className="img-sm profile-pic" />
+                                        <img src={require('../../assets/images/faces/face1.jpg')} alt='' className="img-sm profile-pic" />
                                     </div>
                                     <div className="preview-item-content flex-grow py-2">
                                         <p className="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
@@ -79,10 +79,10 @@ function Navbar() {
                         </li>
                         <li className="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
                             <a className="nav-link dropdown-toggle" id="UserDropdown" href="/" data-toggle="dropdown" aria-expanded="false">
-                                <img className="img-xs rounded-circle ml-2" src="images/faces/face8.jpg" alt='' /> <span className="font-weight-normal"> Henry Klein </span></a>
+                                <img className="img-xs rounded-circle ml-2" src={require('../../assets/images/faces/face8.jpg')} alt='' /> <span className="font-weight-normal"> Henry Klein </span></a>
                             <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                                 <div className="dropdown-header text-center">
-                                    <img className="img-md rounded-circle" src="images/faces/face8.jpg" alt='' />
+                                    <img className="img-md rounded-circle" src={require('../../assets/images/faces/face8.jpg')} alt='' />
                                     <p className="mb-1 mt-3">Allen Moreno</p>
                                     <p className="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
                                 </div>

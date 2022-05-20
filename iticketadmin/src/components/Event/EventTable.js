@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function EventTable() {
@@ -8,13 +8,12 @@ function EventTable() {
     const [events, setEvent] = useState([]);
 
     useEffect(() => {
-        loadOrders();
+        loadEvents();
 
     }, []);
 
-    const loadOrders = async () => {
-
-        const result = await axios.get("https://localhost:44351/api/Event/GetAllEvents");
+    const loadEvents = async () => {
+        const result = await axios.get("/api/Event/GetAllEvents");
         setEvent(result.data);
 
     }
@@ -26,7 +25,7 @@ function EventTable() {
             <div className="card">
                 <div className="card-body">
                     <h4 className="card-title d-flex justify-content-between">Event
-                        <NavLink to='createevent'><button type="button" className="btn btn-success btn-fw">Create Event</button></NavLink>
+                        <Link to='/eventcreate' className="btn btn-success btn-fw">Create Event</Link>
                     </h4>
                     <table className="table table-striped">
                         <thead>
@@ -42,9 +41,8 @@ function EventTable() {
                         <tbody>
                             {
                                 
-                                events.map((levent =>
-                                    
-                                    <tr>
+                                events.map((levent =>                                    
+                                    <tr key={levent}>
                                         <td>{++count}</td>
                                         <td className="py-1">
                                             {levent.name}
@@ -56,7 +54,7 @@ function EventTable() {
                                             </div>
                                         </td>
                                         <td> $ {levent.price} </td>
-                                        <td> <i class="fas fa-trash-alt"></i> </td>
+                                        <td> <i className="fas fa-trash-alt"></i> </td>
                                         
                                     </tr>
                                 ))

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SideBar from './components/layout/SideBar';
 import Navbar from './components/layout/Navbar'
 import EventTable from './components/Event/EventTable';
+import CreateEvent from './components/Event/CreateEvent';
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
               <div className="row">
                <Routes>
                  <Route path="/events" element={<EventTable/>}/>
+                 <Route path="/eventcreate" element={<CreateEvent/>}/>
                </Routes>
               </div>
             </div>

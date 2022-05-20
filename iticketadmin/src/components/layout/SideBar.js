@@ -9,7 +9,7 @@ function SideBar() {
                 <li className="nav-item nav-profile">
                     <a href="/" className="nav-link">
                         <div className="profile-image">
-                            <img className="img-xs rounded-circle" src={require('../../assets/images/faces/face8.jpg')} alt='/' />
+                            <img className="img-xs rounded-circle" src={require('../../assets/logo/logoiticket.png')} alt='/' />
                             <div className="dot-indicator bg-success"></div>
                         </div>
                         <div className="text-wrapper">
@@ -26,10 +26,10 @@ function SideBar() {
                     <span className="nav-link">Dashboard</span>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href='/'>
-                        <NavLink className="menu-title" to='/events'><span >Event</span></NavLink>
+                    
+                        <NavLink className="menu-title nav-link" to='/events'><span >Event</span></NavLink>
                         <i className="icon-screen-desktop menu-icon"></i>
-                    </a>
+                    
                 </li>
             </ul>
         </nav>
