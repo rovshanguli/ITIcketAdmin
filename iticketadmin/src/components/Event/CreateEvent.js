@@ -5,8 +5,17 @@ import axios from 'axios';
 
 function CreateEvent() {
 
+    //Prop for api start
     const [name, setName] = useState();
     const [img, setImg] = useState();
+    const [bgImg, setbgImg] = useState();
+    const [date, setDate] = useState();
+    const [price, setPrice] = useState();
+    const [categoryId, setcategoryId] = useState();
+    const [hallId, sethallId] = useState();
+    //Porp for api end
+
+
     const [halls, setHall] = useState([]);
     const [categories, setCategory] = useState([]);
 
@@ -33,25 +42,44 @@ function CreateEvent() {
         setCategory(result.data);
     }
 
-   
+    
+
     async function create(e) {
+        setDate("2022-05-20T15:54:12.224Z")
         e.preventDefault();
         await axios.post('/api/event/createEvent', {
+            
             Name: name,
-            Image: img
-          })
+            Image: img,
+            Date: date,
+            BackImage: bgImg,
+            Price: price,
+            CategoryId: categoryId,
+            HallId: hallId
+
+          }, {'Content-Type': 'multipart/form-data' })
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
+            
           });
+          
     }
 
-    function base64(file) {
+    function base64Img(file) {
         var base64String = getBase64(file);
         base64String.then(function (result) {
             setImg(result)
+        });
+
+    }
+
+    function base64BgImg(file) {
+        var base64String = getBase64(file);
+        base64String.then(function (result) {
+            setbgImg(result)
         });
 
     }
@@ -75,11 +103,11 @@ function CreateEvent() {
                 </Form.Group>
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>BackGround Image</Form.Label>
-                    <Form.Control type="file" />
+                    <Form.Control type="file" onChange={(e) => base64BgImg(e.target.files[0])} />
                 </Form.Group>
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Image</Form.Label>
-                    <Form.Control type="file" onChange={(e) => base64(e.target.files[0])} />
+                    <Form.Control type="file" onChange={(e) => base64Img(e.target.files[0])} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicDatetime">
@@ -88,17 +116,17 @@ function CreateEvent() {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicNumber">
                     <Form.Label>Price</Form.Label>
-                    <Form.Control type="number" placeholder="Event Price" />
+                    <Form.Control type="number" placeholder="Event Price" onChange={(e) => setPrice(e.target.value)}/>
                 </Form.Group>
                 <FormGroup>
-                    <Form.Select aria-label="Event Category">
+                    <Form.Select aria-label="Event Category" onChange={(e) => setcategoryId(e.target.value)}>
                         <option>Open this select menu</option>
                         {categories.map((category =>
                             <option key={category.id} value="3">{category.name}</option>
                         ))}
                     </Form.Select>
                 </FormGroup>
-                <FormGroup>
+                <FormGroup onChange={(e) => sethallId(e.target.value)}>
                     <Form.Select aria-label="Event Hall">
                         <option>Open this select menu</option>
                         {halls.map((hall =>
