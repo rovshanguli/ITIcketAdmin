@@ -5,17 +5,17 @@ import axios from 'axios';
 
 function CreateEvent() {
 
-    const [name , setName] = useState(); 
+    const [name, setName] = useState();
     const [img, setImg] = useState();
     const [halls, setHall] = useState([]);
     const [categories, setCategory] = useState([]);
-
 
     function getBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result);
+            reader.onload = () => resolve(reader.result.replace('data:', '')
+            .replace(/^.+,/, ''))
             reader.onerror = error => reject(error);
         });
     }
@@ -33,30 +33,28 @@ function CreateEvent() {
         setCategory(result.data);
     }
 
-    function create() {
-        axios.post('/api/Event/CreateEvent', {
+   
+    async function create(e) {
+        e.preventDefault();
+        await axios.post('/api/event/createEvent', {
             Name: name,
-            Image: img,
-            lastName: 'Flintstone'
+            Image: img
           })
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
-        });
+          });
     }
 
-    function test(file) {
+    function base64(file) {
         var base64String = getBase64(file);
         base64String.then(function (result) {
             setImg(result)
         });
-        
-    }
 
-    console.log(img);
-    
+    }
 
     useEffect(() => {
         loadHalls();
@@ -64,15 +62,13 @@ function CreateEvent() {
     }, []);
 
 
-    
-
 
 
 
 
     return (
         <div className='container'>
-            <Form>
+            <Form onSubmit={(e) => create(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Event Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter Event Name" onChange={(e) => setName(e.target.value)} />
@@ -83,7 +79,7 @@ function CreateEvent() {
                 </Form.Group>
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Image</Form.Label>
-                    <Form.Control type="file" onChange={(e) => test(e.target.files[0])} />
+                    <Form.Control type="file" onChange={(e) => base64(e.target.files[0])} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicDatetime">
@@ -110,7 +106,7 @@ function CreateEvent() {
                         ))}
                     </Form.Select>
                 </FormGroup>
-                <Button variant="primary" type="submit" onChange={() => create()}>
+                <Button variant="primary" type="submit" >
                     Submit
                 </Button>
             </Form>
