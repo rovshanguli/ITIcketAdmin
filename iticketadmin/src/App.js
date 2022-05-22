@@ -4,6 +4,7 @@ import SideBar from './components/layout/SideBar';
 import Navbar from './components/layout/Navbar'
 import EventTable from './components/Event/EventTable';
 import CreateEvent from './components/Event/CreateEvent';
+import HallTable from './components/Hall/HallTable';
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
                <Routes>
                  <Route path="/events" element={<EventTable/>}/>
                  <Route path="/eventcreate" element={<CreateEvent/>}/>
+                 <Route path="/halls" element={<HallTable/>}/>
                </Routes>
               </div>
             </div>

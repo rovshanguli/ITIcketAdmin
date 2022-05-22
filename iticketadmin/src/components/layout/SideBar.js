@@ -28,6 +28,7 @@ function SideBar() {
                 <li className="nav-item">
                     
                         <NavLink className="menu-title nav-link" to='/events'><span >Event</span></NavLink>
+                        <NavLink className="menu-title nav-link" to='/halls'><span >Hall</span></NavLink>
                         <i className="icon-screen-desktop menu-icon"></i>
                     
                 </li>

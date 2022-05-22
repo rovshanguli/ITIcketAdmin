@@ -2,25 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-function EventTable() {
+function HallTable() {
+
     let count = 0;
 
-    const [events, setEvent] = useState([]);
+    const [halls, setHall] = useState([]);
 
     useEffect(() => {
-        loadEvents();
+        loadHalls();
 
     }, []);
 
-    const loadEvents = async () => {
-        const result = await axios.get("/api/Event/GetAllEvents");
-        setEvent(result.data);
+    const loadHalls = async () => {
+        const result = await axios.get("/api/hall/getallhalls");
+        setHall(result.data);
 
     }
 
 
-    return (
 
+    return (
         <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
                 <div className="card-body">
@@ -31,31 +32,24 @@ function EventTable() {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th> Event name </th>
-                                <th> Date </th>
-                                <th> Progress </th>
-                                <th> Amount </th>
+                                <th> Hall name </th>
+                                <th> Hall Address </th>
+                                <th> Place </th>
                                 <th> Settings </th>
                             </tr>
                         </thead>
                         <tbody>
-                            { 
-                                events.map((levent =>                                    
-                                    <tr key={levent.id}>
+                            {
+                                halls.map((hall =>
+                                    <tr key={hall.id}>
                                         <td>{++count}</td>
                                         <td className="py-1">
-                                            {levent.name}
+                                            {hall.name}
                                         </td>
-                                        <td> {levent.date.substring(0, 10)} </td>
-                                        <td>
-                                            <div className="progress">
-
-                                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '75%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td> $ {levent.price} </td>
+                                        <td> {hall.address} </td>
+                                        <td> {hall.place} </td>
                                         <td> <i className="fas fa-trash-alt"></i> </td>
-                                        
+
                                     </tr>
                                 ))
 
@@ -69,4 +63,4 @@ function EventTable() {
     )
 }
 
-export default EventTable
+export default HallTable
