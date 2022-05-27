@@ -44,7 +44,7 @@ function Navbar() {
                                         <img src={require('../../assets/images/faces/face8.jpg')} alt='' className="img-sm profile-pic" />
                                     </div>
                                     <div className="preview-item-content flex-grow py-2">
-                                        <p className="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                                        <p className="preview-subject ellipsis font-weight-medium text-dark">Asgar Asgarov </p>
                                         <p className="font-weight-light small-text"> The meeting is cancelled </p>
                                     </div>
                                 </a>
@@ -79,7 +79,7 @@ function Navbar() {
                         </li>
                         <li className="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
                             <a className="nav-link dropdown-toggle" id="UserDropdown" href="/" data-toggle="dropdown" aria-expanded="false">
-                                <img className="img-xs rounded-circle ml-2" src={require('../../assets/images/faces/face8.jpg')} alt='' /> <span className="font-weight-normal"> Henry Klein </span></a>
+                                <img className="img-xs rounded-circle ml-2" src={require('../../assets/images/faces/face8.jpg')} alt='' /> <span className="font-weight-normal">Asgar Asgarov </span></a>
                             <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                                 <div className="dropdown-header text-center">
                                     <img className="img-md rounded-circle" src={require('../../assets/images/faces/face8.jpg')} alt='' />

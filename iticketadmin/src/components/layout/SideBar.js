@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink  } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function SideBar() {
@@ -13,7 +13,7 @@ function SideBar() {
                             <div className="dot-indicator bg-success"></div>
                         </div>
                         <div className="text-wrapper">
-                            <p className="profile-name">Allen Moreno</p>
+                            <p className="profile-name">Asgar Asgarov</p>
                             <p className="designation">Administrator</p>
                         </div>
                         <div className="icon-container">
@@ -26,11 +26,39 @@ function SideBar() {
                     <span className="nav-link">Dashboard</span>
                 </li>
                 <li className="nav-item">
-                    
-                        <NavLink className="menu-title nav-link" to='/events'><span >Event</span></NavLink>
-                        <NavLink className="menu-title nav-link" to='/halls'><span >Hall</span></NavLink>
-                        <i className="icon-screen-desktop menu-icon"></i>
-                    
+
+                    <NavLink className="menu-title nav-link" to='/events'><span >Event</span></NavLink>
+
+                    <i className="icon-screen-desktop menu-icon"></i>
+
+                </li>
+                <li className="nav-item">
+
+
+                    <NavLink className="menu-title nav-link" to='/halls'><span >Hall</span></NavLink>
+                    <i className="icon-screen-desktop menu-icon"></i>
+
+                </li>
+                <li className="nav-item">
+
+
+                    <NavLink className="menu-title nav-link" to='/seans'><span >Seans</span></NavLink>
+                    <i className="icon-screen-desktop menu-icon"></i>
+
+                </li>
+                <li className="nav-item">
+
+
+                    <NavLink className="menu-title nav-link" to='/slider'><span >Slider</span></NavLink>
+                    <i className="icon-screen-desktop menu-icon"></i>
+
+                </li>
+                <li className="nav-item">
+
+
+                    <NavLink className="menu-title nav-link" to='/category'><span >Category</span></NavLink>
+                    <i className="icon-screen-desktop menu-icon"></i>
+
                 </li>
             </ul>
         </nav>
