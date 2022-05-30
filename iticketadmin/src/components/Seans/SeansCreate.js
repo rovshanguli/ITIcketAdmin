@@ -44,7 +44,7 @@ function SeansCreate() {
     <div className='container'>
             <Form onSubmit={(e) => create(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Event Name</Form.Label>
+                    <Form.Label>Seans Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter Seans Name" onChange={(e) => setName(e.target.value)} />
                 </Form.Group>
              

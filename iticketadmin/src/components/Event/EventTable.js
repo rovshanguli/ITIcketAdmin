@@ -23,6 +23,10 @@ function EventTable() {
         loadEvents();
     }
 
+    const UpdateEvent = async id => {
+        console.log(id);
+    }
+
 
 
     return (
@@ -59,8 +63,8 @@ function EventTable() {
                                                 <div className="progress-bar bg-success" role="progressbar" style={{ width: '75%' }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </td>
-                                        <td> $ {levent.price} </td>
-                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td> ₼ {levent.price} </td>
+                                        <td><Link to={`/eventupdate/${levent.id}`}  ><button className='btn btn-outline-warning' onClick={()=> UpdateEvent(levent.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteEvent(levent.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))

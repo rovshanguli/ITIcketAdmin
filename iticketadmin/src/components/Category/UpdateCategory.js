@@ -69,7 +69,7 @@ function UpdateCategory(props) {
         <div className='container'>
             <Form onSubmit={(e) => update(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Hall Name</Form.Label>
+                    <Form.Label>Category Name</Form.Label>
                     <Form.Control type="text" onChange={(e) => setnewName(e.target.value)} defaultValue={name} />
                 </Form.Group>
 

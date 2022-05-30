@@ -24,6 +24,10 @@ function SeansTable() {
         loadSeans();
     }
 
+    const SeansUpdate = async id => {
+        console.log(id);
+    }
+
     return (
         <div className="col-lg-12 grid-margin stretch-card">
             <div className="card">
@@ -50,7 +54,7 @@ function SeansTable() {
                                         </td>
                                         <td> {sea.hour} </td>
 
-                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSeanss(sea.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/seansupdate/${sea.id}`}  ><button className='btn btn-outline-warning' onClick={()=> SeansUpdate(sea.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteSeanss(sea.id)}> <i className="fas fa-trash-alt"></i></button> </td>
 
                                     </tr>
                                 ))

@@ -22,6 +22,10 @@ function SliderTable() { let count = 0;
         await axios.delete(`/api/Slider/Delete/${id}`);
         loadSlider();
     }
+
+    const SliderUpdate= async id => {
+        console.log(id);
+    }
    
     
     return (
@@ -33,7 +37,7 @@ function SliderTable() { let count = 0;
                         <Link to='/eventcreate' className="btn btn-success btn-fw">Create Slider</Link>
                     </h4>
                     <table className="table table-striped">
-                        <thead>
+                        <thead  >
                             <tr>
                                 <th>#</th>
                                 <th>Slider Image </th>
@@ -46,12 +50,12 @@ function SliderTable() { let count = 0;
                                 sliders.map((slider=>                                    
                                     <tr key={slider.id}>
                                         <td>{++count}</td>
-                                        <td className="py-1">
+                                        <td className="py-1 ">
                                             <img src={`data:image/jpeg;base64,${slider.image}`} alt="" />
                                           
                                         </td>
                                         
-                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteSlider(slider.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/sliderupdate/${slider.id}`}  ><button className='btn btn-outline-warning' onClick={()=> SliderUpdate(slider.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteSlider(slider.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                         
                                     </tr>
                                 ))

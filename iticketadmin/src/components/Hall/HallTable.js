@@ -25,6 +25,10 @@ function HallTable() {
         loadHalls();
     }
 
+    const HallUpdate = async id =>{
+        console.log(id);
+    }
+
 
 
     return (
@@ -54,7 +58,7 @@ function HallTable() {
                                         </td>
                                         <td> {hall.address} </td>
                                         <td> {hall.place} </td>
-                                        <td><Link to={'/'} className='btn btn-warning'><i className="far fa-edit"></i></Link> <button className='btn btn-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
+                                        <td><Link to={`/hallupdate/${hall.id}`}  ><button className='btn btn-outline-warning' onClick={()=> HallUpdate(hall.id)} ><i className="far fa-edit"></i></button></Link>  <button className='btn btn-danger' onClick={() => deleteHall(hall.id)}> <i className="fas fa-trash-alt"></i></button> </td>
                                     </tr>
                                 ))
 

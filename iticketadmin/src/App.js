@@ -13,6 +13,10 @@ import SliderCreate from './components/Slider/SliderCreate';
 import CategoryTable from './components/Category/CategoryTable';
 import CategoryCreate from './components/Category/CategoryCreate';
 import UpdateCategory from './components/Category/UpdateCategory';
+import HallUpdate from './components/Hall/HallUpdate';
+import SliderUpdate from './components/Slider/SliderUpdate';
+import SeansUpdate from './components/Seans/SeansUpdate';
+import EventUpdate from './components/Event/UpdateEvent';
 function App() {
   return (
     <Router>
@@ -36,6 +40,10 @@ function App() {
                  <Route path="/category" element={<CategoryTable/>}/>
                  <Route path="/categorycreate" element={<CategoryCreate/>}/>
                  <Route path="/categoryupdate/:id" element={<UpdateCategory/>}/>
+                 <Route path="/hallupdate/:id" element={<HallUpdate/>}/>
+                 <Route path="/sliderupdate/:id" element={<SliderUpdate/>}/>
+                 <Route path="/seansupdate/:id" element={<SeansUpdate/>}/>
+                 <Route path="/eventupdate/:id" element={<EventUpdate/>}/>
                </Routes>
               </div>
             </div>
