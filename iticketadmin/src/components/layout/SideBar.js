@@ -39,13 +39,7 @@ function SideBar() {
                     <i className="icon-screen-desktop menu-icon"></i>
 
                 </li>
-                <li className="nav-item">
-
-
-                    <NavLink className="menu-title nav-link" to='/seans'><span >Seans</span></NavLink>
-                    <i className="icon-screen-desktop menu-icon"></i>
-
-                </li>
+              
                 <li className="nav-item">
 
 

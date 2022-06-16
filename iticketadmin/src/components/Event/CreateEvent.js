@@ -45,6 +45,7 @@ function CreateEvent() {
 
     
     async function create(e) {
+        debugger
         e.preventDefault();
         await axios.post('/api/event/createEvent', {
 
