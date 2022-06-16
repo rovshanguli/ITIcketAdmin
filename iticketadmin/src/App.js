@@ -13,7 +13,8 @@ import CategoryCreate from './components/Category/CategoryCreate';
 import UpdateCategory from './components/Category/UpdateCategory';
 import HallUpdate from './components/Hall/HallUpdate';
 import SliderUpdate from './components/Slider/SliderUpdate';
-import Login from './components/Account/Login'
+import Login from './components/Account/Login';
+import Protection from './components/Protection'
 
 import UpdateEvent from './components/Event/UpdateEvent';
 function App() {
@@ -28,19 +29,22 @@ function App() {
             <div className="content-wrapper">
               <div className="row">
                 <Routes>
-                  <Route path="/" element={<Login />} />
-                  <Route path="/events" element={<EventTable />} />
-                  <Route path="/eventcreate" element={<CreateEvent />} />
-                  <Route path="/hallcreate" element={<HallCreate />} />
-                  <Route path="/halls" element={<HallTable />} />
-                  <Route path="/slider" element={<SliderTable />} />
-                  <Route path="/slidercreate" element={<SliderCreate />} />
-                  <Route path="/category" element={<CategoryTable />} />
-                  <Route path="/categorycreate" element={<CategoryCreate />} />
-                  <Route path="/categoryupdate/:id" element={<UpdateCategory />} />
-                  <Route path="/hallupdate/:id" element={<HallUpdate />} />
-                  <Route path="/sliderupdate/:id" element={<SliderUpdate />} />
-                  <Route path="/eventupdate/:id" element={<UpdateEvent />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route element={<Protection />}>
+
+                    <Route path="/events" element={<EventTable />} />
+                    <Route path="/eventcreate" element={<CreateEvent />} />
+                    <Route path="/hallcreate" element={<HallCreate />} />
+                    <Route path="/halls" element={<HallTable />} />
+                    <Route path="/slider" element={<SliderTable />} />
+                    <Route path="/slidercreate" element={<SliderCreate />} />
+                    <Route path="/category" element={<CategoryTable />} />
+                    <Route path="/categorycreate" element={<CategoryCreate />} />
+                    <Route path="/categoryupdate/:id" element={<UpdateCategory />} />
+                    <Route path="/hallupdate/:id" element={<HallUpdate />} />
+                    <Route path="/sliderupdate/:id" element={<SliderUpdate />} />
+                    <Route path="/eventupdate/:id" element={<UpdateEvent />} />
+                  </Route>
                 </Routes>
               </div>
             </div>

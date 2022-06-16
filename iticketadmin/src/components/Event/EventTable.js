@@ -18,7 +18,7 @@ function EventTable() {
     
 
     const loadEvents = async () => {
-        debugger
+        
         let token = JSON.parse(localStorage.getItem('token'))
         const result = await axios.get("https://localhost:44351/api/Event/GetAllEvents", { headers: { "Authorization": `Bearer ${token}` } });
         setEvent(result.data);
