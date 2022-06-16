@@ -17,8 +17,8 @@ function HallTable() {
   
 
     function initPromise() {
-  
-        axios.get(`/api/hall/getallhalls`)
+        let token = JSON.parse(localStorage.getItem('token'))
+        axios.get(`https://localhost:44351/api/hall/getallhalls`, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 setHall(res.data);
            

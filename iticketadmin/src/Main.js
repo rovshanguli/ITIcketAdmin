@@ -14,6 +14,7 @@ import UpdateCategory from './components/Category/UpdateCategory';
 import HallUpdate from './components/Hall/HallUpdate';
 import SliderUpdate from './components/Slider/SliderUpdate';
 import UpdateEvent from './components/Event/UpdateEvent';
+import Login from './components/Account/Login';
 function App() {
     return (
         <Router>

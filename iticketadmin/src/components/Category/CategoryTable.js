@@ -15,7 +15,8 @@ function CategoryTable() {
     }, []);
 
     const loadCategory = async () => {
-        const result = await axios.get("/api/Category/GetAllCategories");
+        let token = JSON.parse(localStorage.getItem('token'))
+        const result = await axios.get("https://localhost:44351/api/Category/GetAllCategories", { headers: { "Authorization": `Bearer ${token}` } })
         setCategories(result.data);
 
     }

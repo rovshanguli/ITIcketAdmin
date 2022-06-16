@@ -13,7 +13,8 @@ function SliderTable() { let count = 0;
     }, []);
 
     const loadSlider = async () => {
-        const result = await axios.get("/api/Slider/GetAll");
+        let token = JSON.parse(localStorage.getItem('token'))
+        const result = await axios.get("https://localhost:44351/api/Slider/GetAll", { headers: { "Authorization": `Bearer ${token}` } });
         setSlider(result.data);
 
     }
